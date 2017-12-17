@@ -1,6 +1,8 @@
 
 package dijkstra
 
+import "github.com/chanxuehong/util/math"
+
 func (g *Graph) ShortestPath(src, dest int) (x int) {
     g.visit(src)
     v := g.vertices[src]
@@ -15,7 +17,7 @@ func (g *Graph) ShortestPath(src, dest int) (x int) {
     }
     for src != dest {
         if h.IsEmpty() {
-            return 1000000
+            return math.MaxInt
         }
         v = h.Pop()
         src = v.id
