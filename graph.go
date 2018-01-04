@@ -75,6 +75,12 @@ type Graph struct {
 	vertices map[int]Vertex
 }
 
+func NewEmptyGraph() *Graph {
+	return &Graph{
+		visited:  make(map[int]bool),
+		vertices: make(map[int]Vertex),
+	}
+}
 func NewGraph(vs map[int]Vertex) *Graph {
 	g := new(Graph)
 	g.visited = make(map[int]bool)
@@ -159,7 +165,7 @@ func (g *Graph) RemoveEdge(source, target int) {
 	}
 }
 
-func (g *Graph) GetAllNeighbors(source int) []int {
+func (g *Graph) GetAllNeighbours(source int) []int {
 	var t []int
 	v, ok := g.vertices[source]
 	if ok {
