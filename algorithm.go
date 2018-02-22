@@ -1,6 +1,6 @@
 package dijkstra
 
-import "github.com/chanxuehong/util/math"
+import "math"
 
 func (g *Graph) ShortestPath(src, dest int) (x int) {
 	//a clean visit memory
@@ -18,7 +18,7 @@ func (g *Graph) ShortestPath(src, dest int) (x int) {
 	}
 	for src != dest {
 		if h.IsEmpty() {
-			return math.MaxInt
+			return math.MaxInt32
 		}
 		v = h.Pop()
 		src = v.id

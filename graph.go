@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chanxuehong/util/math"
+	"math"
 )
 
 type Edge struct {
@@ -86,7 +86,7 @@ func NewGraph(vs map[int]Vertex) *Graph {
 	g.visited = make(map[int]bool)
 	g.vertices = make(map[int]Vertex)
 	for i, v := range vs {
-		v.dist = math.MaxInt
+		v.dist = math.MaxInt32
 		g.vertices[i] = v
 	}
 	return g
@@ -131,7 +131,7 @@ func NewGraphFromFile(fn string) *Graph {
 	}
 	return NewGraph(v)
 }
-func (g*Graph) GetAllVertices() map[int]Vertex {
+func (g *Graph) GetAllVertices() map[int]Vertex {
 	return g.vertices
 }
 func (g *Graph) Len() int    { return len(g.vertices) }
@@ -139,7 +139,7 @@ func (g *Graph) visit(v int) { g.visited[v] = true }
 
 //if there is path from source to target
 func (g *Graph) HasPath(source, target int) bool {
-	return g.ShortestPath(source, target) != math.MaxInt
+	return g.ShortestPath(source, target) != math.MaxInt32
 }
 
 //source target conntect directly

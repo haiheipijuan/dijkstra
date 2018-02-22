@@ -1,6 +1,6 @@
 package dijkstra
 
-import "github.com/chanxuehong/util/math"
+import "math"
 
 //refer: http://www.linkedin.com/pulse/20140901041720-91330360-find-all-possible-shortest-paths-with-dijkstra-s-algorithm?trk=mp-reader-card
 /**
@@ -28,7 +28,7 @@ func (g *Graph) AllShortestPath(source, target int) [][]int {
 	// 1: visited; 0: unvisited
 	visited := make([]bool, num)
 	for i := 0; i < num; i++ {
-		dist[i] = math.MaxInt
+		dist[i] = math.MaxInt32
 		visited[i] = false
 	}
 
@@ -40,13 +40,13 @@ func (g *Graph) AllShortestPath(source, target int) [][]int {
 	visited[cur] = true
 	// main loop
 	for !visited[target] {
-		min := math.MaxInt
+		min := math.MaxInt32
 		m := -1
 		for i := 0; i < num; i++ {
 			// tentative distance for the vertex i
 			var d int
-			if cost[cur][i] == math.MaxInt {
-				d = math.MaxInt
+			if cost[cur][i] == math.MaxInt32 {
+				d = math.MaxInt32
 			} else {
 				d = dist[cur] + cost[cur][i]
 			}
@@ -73,7 +73,7 @@ func (g *Graph) AllShortestPath(source, target int) [][]int {
 			}
 		}
 		//All the unvisited vertices are not reachable
-		if min == math.MaxInt {
+		if min == math.MaxInt32 {
 			break
 		}
 		cur = m

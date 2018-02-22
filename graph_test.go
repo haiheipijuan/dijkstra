@@ -3,7 +3,7 @@ package dijkstra
 import (
 	"testing"
 
-	"github.com/chanxuehong/util/math"
+	"math"
 )
 
 func AssertEqual(a, b interface{}, t *testing.T) {
@@ -79,7 +79,7 @@ func TestShortestTakesAHop(t *testing.T) {
 }
 
 func TestUnnonnectedNodeReturnsMillion(t *testing.T) {
-	const expected = math.MaxInt
+	const expected = math.MaxInt32
 	v := map[int]Vertex{
 		0: {
 			id:   0,
