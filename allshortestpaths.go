@@ -136,7 +136,7 @@ func (g *Graph) buildCostMatrix() (cost [][]int) {
 	}
 	for i := 0; i < len(cost); i++ {
 		for j := 0; j < len(cost[i]); j++ {
-			cost[i][j] = math.MaxInt
+			cost[i][j] = math.MaxInt32
 		}
 	}
 	for k, v := range g.vertices {
